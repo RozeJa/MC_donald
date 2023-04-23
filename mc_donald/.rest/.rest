@@ -1,0 +1,41 @@
+POST http://localhost:8080/api/orders/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "products": [
+        {
+            "product": {
+                "id": "64450e5d8898cf6aecc9469e"
+            },
+            "count": 1
+        }
+    ],
+    "available": true
+}
+################################
+POST http://localhost:8080/api/categories/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Burgry",
+    "available": true
+}
+
+################################ 64450dcf954a2a7f18eca6c6
+POST http://localhost:8080/api/products/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Cheesse",
+    "price": 50,
+    "category": {
+        "id": "64450dcf954a2a7f18eca6c6"
+    },
+    "available": true
+}
+################################ 64450e5d8898cf6aecc9469e
+GET  http://localhost:8080/api/products/ HTTP/1.1
+################################
+GET http://localhost:8080/api/orders/ HTTP/1.1
+################################
+GET http://localhost:8080/api/categories/ HTTP/1.1
