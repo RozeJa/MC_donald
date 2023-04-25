@@ -1,45 +1,27 @@
 package demo;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.net.HttpURLConnection;
-import java.net.Socket;
-import java.net.URI;
-import java.net.URL;
-import java.net.http.HttpClient;
+import java.util.List;
 
 public class App {
     public static void main(String[] args) throws Exception {
-       
-        //  RestProxy proxy = new RestProxy(new URI("http://localhost:8080/api"));
-        
-        //System.out.println(proxy.get(String.class).length());
-        //System.out.println(proxy.post(String.class));
-        
-        URL url = new URL("http://localhost:8080/api/categories/");
-        HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        con.setRequestMethod("GET");
+    
+        RestProxy proxy = new RestProxy("http://localhost:8080/api/");
 
-        //  con.setRequestProperty("Content-Type", "application/json");
+        proxy.mountEndpoint(RestProxy.HTTP_METHOD.GETALL, Category.class, "categories/");
+        proxy.mountEndpoint(RestProxy.HTTP_METHOD.GET, Category.class, "categories/");
 
-        // ale lepší nastavit
-        //        con.setConnectTimeout(5000);
-        //      con.setReadTimeout(5000);
+        List<Category> css = proxy.getAll(Category.class);
 
-        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-        
-        String inputLine;
-        StringBuffer content = new StringBuffer();
-        while ((inputLine = in.readLine()) != null) {
-            content.append(inputLine);
-            System.out.println(content.toString());
-        }
-        in.close();
-        con.disconnect();
+        Category c2 = proxy.get(Category.class, "644672645a434b1e5a653828");
 
-       // System.out.println(content.toString());
+        css.stream().forEach(System.out::println);
+
+
+        proxy.mountEndpoint(RestProxy.HTTP_METHOD.POST, Category.class, "categories/");
+
+        Category saved = proxy.post(new Category("Nápoje", true));
+        System.out.println(saved.getId());
+        System.out.println(saved.getId());
+        System.out.println(saved.isAvailable());
     }
 }
