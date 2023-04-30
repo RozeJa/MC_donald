@@ -1,7 +1,7 @@
 package cz.rozek.jan.mc_donald.models;
 
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.Map;
+import java.util.TreeMap;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -25,6 +25,6 @@ public class Product {
     @DBRef
     private Category category;
     @DBRef
-    private Set<Improvement> availableImprovements = new TreeSet<>();
+    private Map<String, Improvement> availableImprovements = new TreeMap<>();
     private boolean available;
 }

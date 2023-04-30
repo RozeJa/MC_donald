@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +23,7 @@ import cz.rozek.jan.mc_donald.services.ValidationException;
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
-    
+
     @Autowired
     private ProductService productService;
 
@@ -40,16 +40,16 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/{id}") 
+    @GetMapping("/{id}")
     public ResponseEntity<Product> getOne(@PathVariable String id) {
         try {
             Product product = productService.read(id);
 
-            if (!product.isAvailable()) 
+            if (!product.isAvailable())
                 throw new NullPointerException();
 
             return new ResponseEntity<>(product, HttpStatus.OK);
-        } catch(NoSuchElementException | NullPointerException e) {
+        } catch (NoSuchElementException | NullPointerException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (Exception e) {
             e.printStackTrace();
@@ -71,7 +71,7 @@ public class ProductController {
         }
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Product> update(@PathVariable String id, @RequestBody Product product) {
         try {
             Product p = productService.update(id, product);
@@ -96,14 +96,14 @@ public class ProductController {
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        } 
+        }
     }
 
     @GetMapping("/data_recovery/")
     public ResponseEntity<List<Product>> getRemoved() {
         try {
             List<Product> products = productService.readAll().stream().filter(p -> !p.isAvailable()).toList();
-            
+
             return new ResponseEntity<>(products, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();

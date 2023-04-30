@@ -66,7 +66,7 @@ public class ImprovementService implements CrudService<Improvement, String> {
             throw new ValidationException(sb.toString());
         }
         
-        if (improvementRepository.findByName(improvement.getName()) != null) 
+        if (improvementRepository.findByName(improvement.getName()) != null && improvement.getId().isBlank()) 
             throw new DuplicateKeyException("Improvement name: " + improvement.getName() + " is already exists.");
     }
 }

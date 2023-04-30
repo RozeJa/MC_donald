@@ -70,7 +70,7 @@ public class CategoryService implements CrudService<Category, String> {
             throw new ValidationException(sb.toString());
         }
 
-        if (categoryRepository.findByName(category.getName()) != null) 
+        if (categoryRepository.findByName(category.getName()) != null && category.getId().isBlank()) 
             throw new DuplicateKeyException("Category name: " + category.getName() + " is already exists.");
     }
 }

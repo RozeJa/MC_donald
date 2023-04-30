@@ -75,7 +75,7 @@ public class ProductService implements CrudService<Product, String> {
             throw new ValidationException(sb.toString());
         }
 
-        if (productRepository.findByName(product.getName()) != null) 
+        if (productRepository.findByName(product.getName()) != null && product.getId().isBlank()) 
             throw new DuplicateKeyException("Product name: " + product.getName() + " is already exists.");
     }
 }

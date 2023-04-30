@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +23,7 @@ import cz.rozek.jan.mc_donald.services.ValidationException;
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {
-    
+
     @Autowired
     private CategoryService categoryService;
 
@@ -40,16 +40,16 @@ public class CategoryController {
         }
     }
 
-    @GetMapping("/{id}") 
+    @GetMapping("/{id}")
     public ResponseEntity<Category> getOne(@PathVariable String id) {
         try {
             Category category = categoryService.read(id);
 
-            if (!category.isAvailable()) 
+            if (!category.isAvailable())
                 throw new NullPointerException();
 
             return new ResponseEntity<>(category, HttpStatus.OK);
-        } catch(NoSuchElementException | NullPointerException e) {
+        } catch (NoSuchElementException | NullPointerException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (Exception e) {
             e.printStackTrace();
@@ -71,7 +71,7 @@ public class CategoryController {
         }
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Category> update(@PathVariable String id, @RequestBody Category category) {
         try {
             Category c = categoryService.update(id, category);
@@ -96,14 +96,14 @@ public class CategoryController {
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        } 
+        }
     }
 
     @GetMapping("/data_recovery/")
     public ResponseEntity<List<Category>> getRemoved() {
         try {
             List<Category> categories = categoryService.readAll().stream().filter(c -> !c.isAvailable()).toList();
-            
+
             return new ResponseEntity<>(categories, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();

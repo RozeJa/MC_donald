@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,14 +23,15 @@ import cz.rozek.jan.mc_donald.services.ValidationException;
 @RestController
 @RequestMapping("/api/improvements")
 public class ImprovementController {
-    
+
     @Autowired
     private ImprovementService improvementService;
 
     @GetMapping("/")
     public ResponseEntity<List<Improvement>> getAll() {
         try {
-            List<Improvement> improvements = improvementService.readAll().stream().filter(Improvement::isAvailable).toList();
+            List<Improvement> improvements = improvementService.readAll().stream().filter(Improvement::isAvailable)
+                    .toList();
 
             return new ResponseEntity<>(improvements, HttpStatus.OK);
         } catch (Exception e) {
@@ -44,11 +45,11 @@ public class ImprovementController {
         try {
             Improvement improvement = improvementService.read(id);
 
-            if (!improvement.isAvailable()) 
+            if (!improvement.isAvailable())
                 throw new NullPointerException();
 
             return new ResponseEntity<>(improvement, HttpStatus.OK);
-        } catch(NoSuchElementException | NullPointerException e) {
+        } catch (NoSuchElementException | NullPointerException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,7 +71,7 @@ public class ImprovementController {
         }
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Improvement> update(@PathVariable String id, @RequestBody Improvement improvement) {
         try {
             Improvement i = improvementService.update(id, improvement);
@@ -95,14 +96,15 @@ public class ImprovementController {
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        } 
+        }
     }
 
     @GetMapping("/data_recovery/")
     public ResponseEntity<List<Improvement>> getRemoved() {
         try {
-            List<Improvement> improvements = improvementService.readAll().stream().filter(c -> !c.isAvailable()).toList();
-            
+            List<Improvement> improvements = improvementService.readAll().stream().filter(c -> !c.isAvailable())
+                    .toList();
+
             return new ResponseEntity<>(improvements, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();

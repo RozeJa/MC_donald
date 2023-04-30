@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,16 +40,16 @@ public class OrderController {
         }
     }
 
-    @GetMapping("/{id}") 
+    @GetMapping("/{id}")
     public ResponseEntity<Order> getOne(@PathVariable String id) {
         try {
             Order order = orderService.read(id);
 
-            if (!order.isAvailable()) 
+            if (!order.isAvailable())
                 throw new NullPointerException();
 
             return new ResponseEntity<>(order, HttpStatus.OK);
-        } catch(NoSuchElementException | NullPointerException e) {
+        } catch (NoSuchElementException | NullPointerException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (Exception e) {
             e.printStackTrace();
@@ -71,7 +71,7 @@ public class OrderController {
         }
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Order> update(@PathVariable String id, @RequestBody Order order) {
         try {
             Order o = orderService.update(id, order);
@@ -96,14 +96,14 @@ public class OrderController {
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        } 
+        }
     }
 
     @GetMapping("/data_recovery/")
     public ResponseEntity<List<Order>> getRemoved() {
         try {
             List<Order> orders = orderService.readAll().stream().filter(o -> !o.isAvailable()).toList();
-            
+
             return new ResponseEntity<>(orders, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
