@@ -5,11 +5,13 @@ import java.util.List;
 public class Order implements IData {
     private String id;
     private List<ProductInOrder> products;
+    private boolean finished;
     private boolean available = true;
 
-    public Order(String id, List<ProductInOrder> products, boolean available) {
+    public Order(String id, List<ProductInOrder> products, boolean finished, boolean available) {
         this.id = id;
         this.products = products;
+        this.finished = finished;
         this.available = available;
     }
 
@@ -30,6 +32,14 @@ public class Order implements IData {
 
     public void setProducts(List<ProductInOrder> products) {
         this.products = products;
+    }
+
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public void setFinished(boolean finished) {
+        this.finished = finished;
     }
 
     public boolean isAvailable() {

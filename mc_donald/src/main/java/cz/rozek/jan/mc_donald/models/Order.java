@@ -17,5 +17,6 @@ public class Order {
     @Id
     private String id;
     private List<ProductInOrder> products;
+    private boolean finished;
     private boolean available;
 }
