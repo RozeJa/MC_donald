@@ -47,6 +47,6 @@ public class ProductInOrder {
             price += improvement.getPrice();
         }
 
-        return price;
+        return price;   
     }
 }

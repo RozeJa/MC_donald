@@ -1,6 +1,3 @@
-
-import java.rmi.Naming;
-
 import javax.swing.JFrame;
 
 import data.DB;

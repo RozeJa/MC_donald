@@ -23,7 +23,7 @@ public class CategoryPanel extends ADataPanel<Category> {
 
         JLabel id = new JLabel("ID-");
         gbc.gridy++;
-        add(id, gbc);
+        add(id, gbc);           
 
         JLabel idVal = new JLabel(String.valueOf(data.getId()));
         gbc.gridx++;

@@ -12,7 +12,6 @@ import gui.dataPanesl.ADataPanel;
 import gui.forms.EditForm;
 
 import java.awt.event.*;
-import java.rmi.RemoteException;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -53,6 +52,13 @@ public class MainFrame extends JFrame {
         datatypes.addMouseListener(selectDataTyps);
 
         add.addActionListener(l -> {
+
+            if (actualClass.getName().equals(Order.class.getName())) {
+                JOptionPane.showMessageDialog(new JDialog(), "Z administrátorské aplikace se nadá vytvořit nová objednávka.");
+
+                return;
+            }
+
             try {
                 EditForm<IData> ef = getForm(null);
 
@@ -132,12 +138,11 @@ public class MainFrame extends JFrame {
         }
 
         dataContentPanel.removeAll();
-        
-        if (actualClass.getName().equals(Order.class.getName())) 
-            dataContentPanel.setLayout(new GridLayout((data.size()),1));
-        else 
-            dataContentPanel.setLayout(new GridLayout((data.size() / 2) + data.size() % 2, 2));
 
+        if (actualClass.getName().equals(Order.class.getName()))
+            dataContentPanel.setLayout(new GridLayout((data.size()), 1));
+        else
+            dataContentPanel.setLayout(new GridLayout((data.size() / 2) + data.size() % 2, 2));
 
         for (IData dat : data.values()) {
             dataContentPanel.add(getNewDataPanel(dat));

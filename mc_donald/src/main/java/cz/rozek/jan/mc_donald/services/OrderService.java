@@ -1,4 +1,4 @@
-package cz.rozek.jan.mc_donald.services;
+package cz.rozek.jan.mc_donald.services;    
 
 import java.util.List;
 
@@ -20,6 +20,9 @@ public class OrderService implements CrudService<Order, String> {
 
         order.setId(null);
         Order o = orderRepository.save(order);
+        
+        // TODO tisk
+        
         return o;
     }
 
