@@ -14,6 +14,7 @@ public class OrderService implements CrudService<Order, String> {
     @Autowired
     private OrderRepository orderRepository;
 
+
     @Override
     public Order create(Order order) throws ValidationException, DuplicateKeyException {
         validate(order);
