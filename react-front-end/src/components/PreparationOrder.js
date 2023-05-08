@@ -1,21 +1,38 @@
+import { useEffect, useState } from 'react'
 import './PreparationOrder.css'
+import PreparationProduct from './PreparationProduct'
 
 const PreparationOrder = (data) => {
+
+    const order = data.order
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        setProducts(order.products.map(p => {
+            return (
+                <PreparationProduct key={p.product.id} product={p} />
+            )
+        }))
+    }, [])
+
     return (
         <div className='preparation-order' onClick={() => {
-            console.log("asddda");
-            data.order.finished = true
-            fetch('http://localhost:8080/api/orders/' + data.order.id, {
+            order.finished = true
+            fetch('http://localhost:8080/api/orders/' + order.id, {
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(data.order)
+                body: JSON.stringify(order)
             }).then(response => {
                 if (response.status === 200) {
                     console.log("odebrání se podařilo");
                 }
             })
         }}>
-            order.id: {data.order.id}
+            <h3>Order: {order.number}</h3>
+            <div>
+                <h4>Products: </h4>
+                {products}
+            </div>
         </div>
     )
 }

@@ -1,0 +1,26 @@
+.delivery-panel {
+    display: flex;
+    flex-direction: row;
+}
+
+.prepiring-delivery, .finished-delivery {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+}
+
+.prepiring-delivery h1, .finished-delivery h1 {
+    text-align: center;
+}
+
+.prepiring-delivery .distribution-order {
+    background-color: coral;
+}
+.finished-delivery .distribution-order {
+    background-color: chartreuse;
+}
+
+.finished-delivery .distribution-order:hover {
+    background-color: chartreuse;
+    cursor: pointer;
+}

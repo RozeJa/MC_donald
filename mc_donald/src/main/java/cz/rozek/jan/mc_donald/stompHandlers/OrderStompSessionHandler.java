@@ -33,7 +33,7 @@ public class OrderStompSessionHandler implements StompSessionHandler {
 
     @Override
     public void handleFrame(StompHeaders headers, Object payload) {
-        System.out.println(((Order) payload).getId());        
+       //System.out.println(((Order) payload).getId());        
     }
 
     @Override
