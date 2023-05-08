@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+  
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+}
+
+.order-panel {
+    display: flex;
+
+}
+
+.ordering-panel {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+}
+
+.order-header {
+    display: flex;
+    overflow: auto;
+    height: 14vh;
+    justify-content: space-around;
+}
+
+.category-in-header {
+    padding: 2vh;
+    margin: 0 2vh;
+}
+.category-in-header:hover {
+    background-color: aqua;
+    cursor: pointer;
+}
+
+.order-body {
+    display: flex;
+    overflow: auto;
+    flex-wrap: wrap;
+    height: 86vh;
+}
+
+.product-order-body {
+    display: flex;
+    margin: 1vw;
+    width: 13.7vw;
+    height: 13.7vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-order-body:hover {
+    background-color: aqua;
+    cursor: pointer;
+}
+
+.product-order-body h3 {
+    font-weight: normal;
+    font-size: 1em;
+    margin-top: 0;
+}
+
+.order {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1vw ;
+    width: 20vw;
+}
+
+.header-distance {
+    height: 12vh;
+}
+
+.products {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 80vh;
+    width: 100%;
+}
+
+.product-in-order {
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh;
+    margin-bottom: 1vh;
+}
+
+.product-in-order:nth-child(2n) {
+    background-color: rgba(255, 0, 0, 0.183);
+}
+.product-in-order:nth-child(2n-1) {
+    background-color: rgba(0, 0, 255, 0.204)
+}
+.product-in-order p {
+    font-size: 1.2em;
+    margin: 0;
+}
+.product-in-order input {
+    width: 3vw;
+}
+.product-in-order button {
+
+}
+
+.order-btns {
+    display: flex;
+    width: 100%;
+    height: 7vh;
+    justify-content: space-around;
+    align-items: center;
+}

@@ -83,7 +83,7 @@ public class MainFrame extends JFrame {
     private EditForm<IData> getForm(IData data) {
         EditForm<IData> form = null;
         try {
-            form = (EditForm<IData>) Class.forName("gui.forms." + actualClass.getSimpleName() + "Form").getConstructor()
+            form = (EditForm<IData>) Class.forName("cz.rozek.jan.admin_mc_donald.gui.forms." + actualClass.getSimpleName() + "Form").getConstructor()
                     .newInstance();
         } catch (Exception e) {
             e.printStackTrace();
@@ -178,7 +178,7 @@ public class MainFrame extends JFrame {
 
         ADataPanel<IData> panel = null;
         try {
-            panel = (ADataPanel<IData>) Class.forName("gui.dataPanesl." + dat.getClass().getSimpleName() + "Panel")
+            panel = (ADataPanel<IData>) Class.forName("cz.rozek.jan.admin_mc_donald.gui.dataPanesl." + dat.getClass().getSimpleName() + "Panel")
                     .getConstructor().newInstance();
         } catch (Exception e) {
             e.printStackTrace();

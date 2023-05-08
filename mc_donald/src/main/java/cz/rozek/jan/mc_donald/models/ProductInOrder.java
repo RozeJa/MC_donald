@@ -1,5 +1,6 @@
 package cz.rozek.jan.mc_donald.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -18,5 +19,14 @@ public class ProductInOrder {
     @DBRef
     private Product product;
     @DBRef
-    private List<Improvement> improvements;
+    private List<Improvement> improvements = new  ArrayList<>();
+
+    public double countPrice() {
+        double price = count * product.getPrice();
+
+        for (Improvement improvement : improvements) {
+            price += count * improvement.getPrice();
+        }
+        return price;
+    }
 }

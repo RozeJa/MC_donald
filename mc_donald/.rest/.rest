@@ -5,7 +5,7 @@ Content-Type: application/json
     "products": [
         {
             "product": {
-                "id": "644a4aeef53a266b6715a2ff"
+                "id": "64583c7e9761d239e976f162"
             },
             "count": 1
         }
@@ -17,7 +17,7 @@ POST http://localhost:8080/api/categories/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Burgry",
+    "name": "Drinks",
     "available": true
 }
 

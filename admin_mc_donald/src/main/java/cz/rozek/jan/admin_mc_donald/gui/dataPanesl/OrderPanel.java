@@ -18,12 +18,12 @@ public class OrderPanel extends ADataPanel<Order> {
         setLayout(gbl);
         gbc = new GridBagConstraints();
 
-        JLabel header = new JLabel("Obědnávka " + data.getId());
+        JLabel header = new JLabel("Obědnávka " + data.getId() + "/" + data.getNumber());
         gbc.gridx = 0;
         gbc.gridy = 0;
         add(header, gbc);
 
-        JLabel products = new JLabel("Produkty " + data.getId());
+        JLabel products = new JLabel("Produkty: ");
         gbc.gridy++;
         add(products, gbc);
 
@@ -41,7 +41,7 @@ public class OrderPanel extends ADataPanel<Order> {
         }
 
         gbc.gridy++;
-        JLabel price = new JLabel("Cena celkem: " + getPrice());
+        JLabel price = new JLabel("Cena celkem: " + getPrice() + " Kč");
         add(price, gbc);
     }
 

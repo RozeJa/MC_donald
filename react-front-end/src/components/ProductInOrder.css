@@ -1,0 +1,29 @@
+.product-in-order {
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh;
+    margin-bottom: 1vh;
+    align-items: center;
+}
+
+.product-in-order:nth-child(2n) {
+    background-color: rgba(255, 0, 0, 0.183);
+}
+.product-in-order:nth-child(2n-1) {
+    background-color: rgba(0, 0, 255, 0.204)
+}
+.product-in-order p {
+    font-size: 1.2em;
+    margin: 0;
+}
+.product-in-order input {
+    width: 3vw;
+    max-height: 2vh;
+}
+.product-in-order button {
+
+}
+
+.product-in-order-controll input {
+    margin-right: .5vh;
+}

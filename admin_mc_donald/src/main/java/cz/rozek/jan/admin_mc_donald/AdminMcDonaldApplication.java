@@ -30,7 +30,7 @@ public class AdminMcDonaldApplication {
 		stompClient.setMessageConverter(new MappingJackson2MessageConverter());
 		
 		OrderStompSessionHandler sessionHandler = new OrderStompSessionHandler();
-		stompClient.connectAsync("ws://localhost:8080/gs-guide-websocket", sessionHandler);
+		stompClient.connectAsync("ws://localhost:8080/ws", sessionHandler);
 
 
         // nastevení získávání dat ze servru

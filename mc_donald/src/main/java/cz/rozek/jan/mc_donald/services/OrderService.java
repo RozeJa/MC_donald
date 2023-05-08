@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cz.rozek.jan.mc_donald.io.Printer;
 import cz.rozek.jan.mc_donald.models.Order;
 import cz.rozek.jan.mc_donald.repositories.OrderRepository;
 
@@ -14,15 +15,20 @@ public class OrderService implements CrudService<Order, String> {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private Printer printer;
+
+    private int numberOfOrder = 0;
 
     @Override
     public Order create(Order order) throws ValidationException, DuplicateKeyException {
         validate(order);
 
         order.setId(null);
+        order.setNumber(numberOfOrder++);
         Order o = orderRepository.save(order);
         
-        // TODO tisk
+        printer.print(order);
         
         return o;
     }

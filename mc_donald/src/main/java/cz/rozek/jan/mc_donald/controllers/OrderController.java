@@ -79,7 +79,10 @@ public class OrderController {
     @PostMapping("/")
     public ResponseEntity<Order> create(@RequestBody Order order) {
         try {
+
             Order o = orderService.create(order);
+
+            o = orderService.read(o.getId());
 
             orderHandler.sendOrder(o);
 
@@ -96,6 +99,8 @@ public class OrderController {
     public ResponseEntity<Order> update(@PathVariable String id, @RequestBody Order order) {
         try {
             Order o = orderService.update(id, order);
+            
+            o = orderService.read(o.getId());
             
             orderHandler.sendOrder(o);
 

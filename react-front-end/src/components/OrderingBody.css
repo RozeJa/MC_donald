@@ -1,0 +1,29 @@
+.order-body {
+    display: flex;
+    overflow: auto;
+    flex-wrap: wrap;
+    height: 86vh;
+}
+
+.product-order-body {
+    display: flex;
+    margin: 1vw;
+    padding: 1vw;
+    width: 11.6vw;
+    max-height: 11.6vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.product-order-body:hover {
+    background-color: aqua;
+    cursor: pointer;
+}
+
+.product-order-body h3 {
+    font-weight: normal;
+    font-size: 1em;
+    margin-top: 0;
+}

@@ -1,0 +1,10 @@
+.preparation-order {
+    padding: 1vh;
+    background-color: pink;
+
+}
+
+.preparation-order:hover {
+    background-color: purple;
+    cursor: pointer;
+}

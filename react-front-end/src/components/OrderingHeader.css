@@ -1,0 +1,15 @@
+.order-header {
+    display: flex;
+    overflow: auto;
+    height: 14vh;
+    justify-content: space-around;
+}
+
+.category-in-header {
+    padding: 2vh;
+    margin: 0 2vh;
+}
+.category-in-header:hover {
+    background-color: aqua;
+    cursor: pointer;
+}

@@ -179,8 +179,7 @@ public class RestApi {
             throws JsonProcessingException, JsonMappingException {
         ObjectMapper objectMapper = new ObjectMapper();
 
-        return objectMapper.readValue(json, new TypeReference<List<E>>() {
-        }).stream().map(i -> objectMapper.convertValue(i, type)).toList();
+        return objectMapper.readValue(json, new TypeReference<List<E>>() {}).stream().map(i -> objectMapper.convertValue(i, type)).toList();
     }
 
     private String convertDataToJson(Object data) throws JsonProcessingException {
