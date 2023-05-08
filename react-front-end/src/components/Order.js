@@ -8,22 +8,17 @@ const Order = () => {
     const OrderP = useContext(OrderProvider)
     const [products, setProducts] = useState([])
     const [price, setPrice] = useState(0);
-    const [dialog, setDialog] = useState(<></>)
 
     useEffect(() => {
         setProducts(OrderP.order.products.map(product => {
-            return  <ProductInOrder key={Math.random()} product={product} onClick={() => {
-                if (product.product.availableImprovements.length > 0) {
-                    // TODO: zobraz dialog pro přidání vylepšení pokud jsou dostupná
-                } 
-            }} />
+            return  <ProductInOrder key={Math.random()} product={product} />
         }))
         setPrice(countPrice(OrderP.order))
     }, [OrderP.order])
 
     return (
         <div className='order'>
-            <div className="header-distance">{dialog}</div>
+            <div className="header-distance"></div>
             
             <div className='products'>
                 <h3>Order: </h3>

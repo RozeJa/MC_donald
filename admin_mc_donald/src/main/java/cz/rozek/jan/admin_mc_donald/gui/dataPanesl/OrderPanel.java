@@ -29,7 +29,7 @@ public class OrderPanel extends ADataPanel<Order> {
 
         for (ProductInOrder product : data.getProducts()) {
             gbc.gridy++;
-            JLabel p = new JLabel(product.getProduct().getName());
+            JLabel p = new JLabel(product.getProduct().getName() + " " + product.getCount() + "x");
             add(p, gbc);
             gbc.gridx++;
             for (Improvement improvement : product.getImprovements()) {

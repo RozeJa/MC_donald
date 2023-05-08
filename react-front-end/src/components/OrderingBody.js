@@ -10,8 +10,11 @@ const OrderingBody = (data) => {
     const [dialog, setDialog] = useState(<></>)
 
     const addProduct = (product) => {
-        if (product.availableImprovements.length > 0) {
+
+        if (Object.keys(product.availableImprovements).length > 0) {
             // TODO: pokud extují vylepšení zobraz dialog
+            console.log("dialog");
+            setDialog(); 
         } else {
     
             let products = OrderP.order.products

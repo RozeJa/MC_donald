@@ -27,3 +27,7 @@
 .product-in-order-controll input {
     margin-right: .5vh;
 }
+
+.product-in-order-name:hover {
+    cursor: pointer;
+}
