@@ -4,7 +4,10 @@ import OrderPanel from './pages/OrderPanel';
 import PreparationPanel from './pages/PreparationPanel';
 import DeliveryPanel from './pages/DeliveryPanel';
 import Error from './pages/Error';
+import CategoryPanel from './pages/CategoryPanel';
 import OrderProvider from './OrderProvider';
+import ProductsPanel from './pages/ProductsPanel';
+import Product from './pages/Product';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -14,20 +17,21 @@ function App() {
     finished: false
   }
 
-  const [order, setOrder] = useState(initOrder)
-  const [refresh, setRefresh] = useState(true)
-
   useEffect(() => {
-    console.log(order);
-  }, [order])
+    if (sessionStorage.getItem('order') === null) 
+      sessionStorage.setItem('order', JSON.stringify(initOrder))
+  }, [])
 
   return (
-    <OrderProvider.Provider value={{order, setOrder, refresh, setRefresh, initOrder}}>
       <BrowserRouter>
         <Routes>
           <Route index element={ <Home /> }/>
 
           <Route path="/order" element={ <OrderPanel /> }/>
+          <Route path="/order/categories/" element={ < CategoryPanel /> }/>
+          <Route path="/order/products/:categoryId" element={ < ProductsPanel /> }/>
+          <Route path="/order/addProduct/:productId" element={ <Product /> }/>
+          <Route path='/order/confirrm' element={ /*todo*/ <></>} />
           <Route path="/preparation" element={ <PreparationPanel /> }/>
           <Route path="/delivery" element={ <DeliveryPanel /> }/>
 
@@ -35,7 +39,6 @@ function App() {
 
         </Routes>
       </BrowserRouter>      
-    </OrderProvider.Provider>
 
   );
 }

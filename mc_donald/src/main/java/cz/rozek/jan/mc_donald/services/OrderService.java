@@ -25,7 +25,7 @@ public class OrderService implements CrudService<Order, String> {
         validate(order);
 
         order.setId(null);
-        order.setNumber(numberOfOrder++);
+        order.setNumber(++  numberOfOrder);
         Order o = orderRepository.save(order);
         
         printer.print(order);

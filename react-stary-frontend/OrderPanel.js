@@ -1,10 +1,13 @@
 import './OrderPanel.css'
+import Order from '../components/Order'
+import OrderingPanel from '../components/OrderingPanel'
 
 const OrderPanel = () => {
 
     return (
         <div className='order-panel'>
-            <a href='/order/categories/'>Objednej</a>
+            <OrderingPanel />
+            <Order />
         </div>
     )
 }
