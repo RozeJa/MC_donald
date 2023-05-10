@@ -8,16 +8,16 @@ const CategoryPanel = () => {
 
     useEffect(() => {
         fetch('http://localhost:8080/api/categories/')
-        .then(res => {
-            if (res.status === 200) {
-                return res.json()
-            } else {
-                return []
-            }
-        })
-        .then(data => {
-            setCategories(data.map(c => <OrderCategory key={c.id} category={c} />))
-        })
+            .then(res => {
+                if (res.status === 200) {
+                    return res.json()
+                } else {
+                    return []
+                }
+            })
+            .then(data => {
+                setCategories(data.map(c => <OrderCategory key={c.id} category={c} />))
+            })
     }, [])
 
     return (
@@ -26,7 +26,7 @@ const CategoryPanel = () => {
                 {categories}
             </div>
             <div className='category-panel-btns'>
-                <a href='/order/confirm'>Dokončit objednávku</a>
+                <a href='/order/completeOrder'>Dokončit objednávku</a>
             </div>
         </div>
     )

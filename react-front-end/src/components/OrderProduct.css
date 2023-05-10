@@ -1,16 +1,20 @@
-.category-order {
+.order-product {
     display: flex;
+    flex-direction: column;
     font-size: 2em;
     padding: 2vw 2vh;
     margin: 1vw 1vh;
     width: 29vw;
-    height: 36vh;
+    height: 36vh;   
     background-color: red;
     justify-content: center;
     align-items: center;
 }
 
-.category-order {
-    text-decoration: none;
-    color: white;
+.order-product:hover {
+    cursor: pointer;
+}
+
+.order-product h4 {
+    font-weight: normal;
 }

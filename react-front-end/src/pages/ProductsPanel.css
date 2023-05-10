@@ -1,0 +1,23 @@
+.product-panel {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.product-panel-products {
+    display: flex;
+    overflow: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100vw;
+    height: 85vh;
+}
+
+.product-panel-btns {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100vw;
+    height: 15vh;
+}

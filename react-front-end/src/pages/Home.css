@@ -1,0 +1,14 @@
+.home {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    background-color: pink;
+}
+
+.home a {
+    padding: 2em;
+    background-color: green;
+    color: white;
+    text-decoration: none;
+}

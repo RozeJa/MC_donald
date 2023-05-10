@@ -1,4 +1,15 @@
 .order-panel {
     display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: yellowgreen;
+}
 
+.order-panel a {
+    font-size: 3.5em;
+    padding: 2em 3em;
+    background-color: yellow;
+    border-radius: 5em;
 }

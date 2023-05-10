@@ -8,7 +8,7 @@ const OrderProduct = (props) => {
     return (
         <div className='order-product' onClick={() => {navigate(`/order/addProduct/${props.product.id}`)}}>
             <h3>{props.product.name}</h3>
-            <h4>{props.product.price}</h4>
+            <h4>{props.product.price} Kč</h4>
         </div>
     )
 }
