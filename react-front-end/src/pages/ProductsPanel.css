@@ -1,6 +1,7 @@
 .product-panel {
     display: flex;
     flex-direction: column;
+    text-align: center;
     width: 100vw;
     height: 100vh;
 }

@@ -17,6 +17,10 @@ const CompleteOrder = () => {
 
     const cancel = () => {
         sessionStorage.removeItem('order')
+        sessionStorage.setItem('order', JSON.stringify({
+            products: [],
+            finished: false
+        }))
         navigate('/order')
     }
 
@@ -31,6 +35,10 @@ const CompleteOrder = () => {
         .then(res => {
             if (res.status === 200) {
                 sessionStorage.removeItem('order')
+                sessionStorage.setItem('order', JSON.stringify({
+                    products: [],
+                    finished: false
+                }))
                 navigate('/order')
             } else {
                 return {}
@@ -39,17 +47,17 @@ const CompleteOrder = () => {
     }
 
     return (
-        <div className='compleat-order'>
+        <div className='complete-order'>
             <div className='compleat-order-header'>
                 <h1>Vaše objednávka obsahuje:</h1>
             </div>
-            <div className='compleat-order-products'>
+            <div className='complete-order-products'>
                 {products}
             </div>
-            <div className='compleat-order-btns'>
+            <div className='complete-order-btns'>
                 <h4 onClick={() => navigate('/order/categories/')}>Pokračovat ve výběru</h4>
                 <h4 onClick={cancel}>Zrušit objednávku</h4>
-                <h4 onClick={pay}>Zaplatit kartou</h4>
+                <h4 onClick={pay}>Zaplatit kartou {countPrice(order)} Kč </h4>
             </div>
         </div>
     )
@@ -57,14 +65,17 @@ const CompleteOrder = () => {
 
 export default CompleteOrder
 
-function getProductId(product) {
-    let id = product.product.id
+function countPrice(order) {
+    let price = 0
 
-    product.improvements.forEach(i => {
-        id += i.id
+    console.log(order);
+
+    order.products.forEach(product => {
+        product.improvements.forEach(i => {
+            price += i.price * product.count
+        })            
+        price += product.product.price * product.count
     })
 
-    console.log(id)
-
-    return id
+    return price
 }

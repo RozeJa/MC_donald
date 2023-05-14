@@ -11,7 +11,7 @@ const ProductInOrder = (props) => {
     const [improvements, setImprovements] = useState([])
 
     useEffect(() => {
-        setImprovements(product.improvements.map(i => <p>{product.count}x {i.name} {i.price} Kč</p>))
+        setImprovements(product.improvements.map(i => <p key={product.count + 'x' + i.name + i.price} className='product-in-order-improvement'>{product.count}x {i.name} {i.price} Kč</p>))
     }, [])
 
     const editProduct = () => {
@@ -41,9 +41,13 @@ const ProductInOrder = (props) => {
 
     return (
         <div className='product-in-order'>
-            <h2 onClick={() => editProduct()}>{product.count}x {product.product.name}  {countPrice(product)} Kč</h2>
-            <button onClick={() => removeProduct()}>X</button>
-            {improvements}
+            <div className='product-in-order-header'>
+                <h2 onClick={() => editProduct()}>{product.count}x {product.product.name}  {countPrice(product)} Kč</h2>
+                <button onClick={() => removeProduct()}>X</button>  
+            </div>    
+            <div className='product-in-order-improvements'>
+                {improvements}
+            </div>
         </div>
     )
 }

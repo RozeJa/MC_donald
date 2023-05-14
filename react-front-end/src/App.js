@@ -5,10 +5,9 @@ import PreparationPanel from './pages/PreparationPanel';
 import DeliveryPanel from './pages/DeliveryPanel';
 import Error from './pages/Error';
 import CategoryPanel from './pages/CategoryPanel';
-import OrderProvider from './OrderProvider';
 import ProductsPanel from './pages/ProductsPanel';
 import Product from './pages/Product';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import CompleteOrder from './pages/CompleteOrder';
 
 function App() {

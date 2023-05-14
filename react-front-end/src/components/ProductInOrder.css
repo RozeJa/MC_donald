@@ -1,3 +1,31 @@
 .product-in-oder {
-    
+    display: flex;
+    flex-direction: column;
+
+}
+
+.product-in-order-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 33vw;
+}
+
+.product-in-order-header h2 {
+    cursor: pointer;
+}
+
+.product-in-order-improvements {
+    display: flex;
+    margin-left: 4vw;
+}
+
+.product-in-order-improvement  {
+    text-align: center;
+}
+
+.product-in-order-header button {
+    display: flex;
+    height: 55%;
 }
