@@ -2,10 +2,10 @@
     display: flex;
     flex-direction: column;
     font-size: 2em;
-    padding: 2vw 2vh;
-    margin: 1vw 1vh;
-    width: 29vw;
-    height: 36vh;   
+    padding: 2vh 2vw;
+    margin: 1vh 1vw;
+    width: 27vw;
+    height: 36vh;
     background-color: red;
     justify-content: center;
     align-items: center;

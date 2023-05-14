@@ -26,6 +26,9 @@ const CategoryPanel = () => {
                 {categories}
             </div>
             <div className='category-panel-btns'>
+                <a href='/order' onClick={() => {
+                    sessionStorage.removeItem('order')
+                }}>Zahodit objednávku</a>
                 <a href='/order/completeOrder'>Dokončit objednávku</a>
             </div>
         </div>

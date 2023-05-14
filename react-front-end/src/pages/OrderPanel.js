@@ -1,10 +1,13 @@
+import { useNavigate } from 'react-router-dom'
 import './OrderPanel.css'
 
 const OrderPanel = () => {
 
+    const navigate = useNavigate()
+
     return (
-        <div className='order-panel'>
-            <a href='/order/categories/'>Objednej</a>
+        <div className='order-panel' onClick={() => navigate('/order/categories/')}>
+            <p>Objednej</p>
         </div>
     )
 }

@@ -7,9 +7,12 @@
     background-color: yellowgreen;
 }
 
-.order-panel a {
+.order-panel p {
     font-size: 3.5em;
     padding: 2em 3em;
     background-color: yellow;
     border-radius: 5em;
+}
+.order-panel:hover {
+    cursor: pointer;
 }

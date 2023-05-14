@@ -123,8 +123,11 @@ const Product = () => {
                 <h1 onClick={incCount}>{product.name} {product.price} Kč</h1>
                 <Input type='number' min='1' max='30' value={productInOrder.count} onChange={handleChange} />
             </div>
-            <div className='product-improvements'>
-                {improvementsShow}
+            <div className='product-improvements-header'>
+                <h2>Dostupná vylepšení: </h2>
+                <div className='product-improvements'>
+                    {improvementsShow}
+                </div>
             </div>
             <div className='product-btns'>
                 <button onClick={cancel}>Cancel</button>

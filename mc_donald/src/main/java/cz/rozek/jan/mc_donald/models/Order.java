@@ -24,18 +24,22 @@ public class Order {
     @Override
     public String toString() {
         // todo test
+        double totalPrice = 0;
 
         StringBuilder sb = new StringBuilder();
             sb.append(String.format("Order: %s", getId()));
 
         for (ProductInOrder productInOrder : products) {
-            sb.append(String.format("%n%dx %-40s %10.2f Kč %10.2f Kč", productInOrder.getCount(), productInOrder.getProduct().getName(), productInOrder.getProduct().getPrice(), productInOrder.countPrice()));
+            sb.append(String.format("%n%dx %-40s  %10.2f Kč %10.2f Kč", productInOrder.getCount(), productInOrder.getProduct().getName(), productInOrder.getProduct().getPrice(), productInOrder.countPrice()));
+            totalPrice += productInOrder.getProduct().getPrice() * productInOrder.getCount();
 
             for (Improvement improvement : productInOrder.getImprovements()) {
-                sb.append(String.format("%n%-40s %10.2f Kč %10.2f Kč", improvement.getName(), improvement.getPrice(), improvement.getPrice() * productInOrder.getCount()));
+                sb.append(String.format("%n%10s%-40s %.2f Kč %10.2f Kč", "", improvement.getName(), improvement.getPrice(), improvement.getPrice() * productInOrder.getCount()));
+                totalPrice += improvement.getPrice() * productInOrder.getCount();
             }
         }
 
+        sb.append(String.format("%nCelkem: %.2f Kč", totalPrice));
         return sb.toString();
     }
 }

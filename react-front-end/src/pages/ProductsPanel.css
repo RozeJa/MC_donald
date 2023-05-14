@@ -14,10 +14,19 @@
     height: 85vh;
 }
 
-.product-panel-btns {
+.product-panel-btns  {
     display: flex;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
     width: 100vw;
     height: 15vh;
+    justify-content: space-around;
+}
+
+.product-panel-btns a {
+    padding: 5vh;
+    font-size: 2em;
+    background-color: cyan;
+    text-decoration: none;
+    color: black;
 }

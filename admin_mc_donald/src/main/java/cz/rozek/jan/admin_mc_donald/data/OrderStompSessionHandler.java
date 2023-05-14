@@ -38,6 +38,7 @@ public class OrderStompSessionHandler implements StompSessionHandler {
     public void handleFrame(StompHeaders headers, Object payload) {
         Order order = (Order) payload;
         mainFrame.addOrderToPrint(order);
+        System.out.println(order.toString());
     }
 
     @Override

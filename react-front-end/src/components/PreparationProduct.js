@@ -17,7 +17,7 @@ function getImprovements(product) {
     let improvements = []
 
     product.improvements.forEach(i => {
-        improvements.push(i)
+        improvements.push(i.name)
     });
 
     return improvements.length === 0 ? "" : "[" + improvements.join(", ") +  "]"

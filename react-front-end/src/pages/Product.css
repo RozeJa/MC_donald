@@ -1,0 +1,49 @@
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: red;
+}
+
+.product-product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5vh 0;
+}
+
+.product-product, .product-btns, .product-improvements {
+    width: 25vw;
+}
+
+.product-product input {
+    font-size: 1.5em;
+    height: 1.6em;
+    width: 15%;
+}
+
+.product-product h1:hover {
+    cursor: pointer;
+}
+
+.product-improvements-header {
+    min-height: 70vh;
+}
+
+.product-improvements {
+    overflow: auto;
+}
+
+.product-btns {
+    display: flex;
+    justify-content: space-around;
+}
+
+.product-btns button {
+    font-size: 1.5em;
+    padding: .2em;
+}
+.product-btns button:hover {
+    cursor: pointer;
+}
