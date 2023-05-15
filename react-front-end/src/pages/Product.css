@@ -18,9 +18,9 @@
 }
 
 .product-product input {
-    font-size: 1.5em;
+    font-size: 2em;
     height: 1.6em;
-    width: 15%;
+    width: 15%; 
 }
 
 .product-product h1:hover {

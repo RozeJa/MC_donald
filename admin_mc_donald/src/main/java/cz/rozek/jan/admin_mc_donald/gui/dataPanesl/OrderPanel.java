@@ -49,7 +49,11 @@ public class OrderPanel extends ADataPanel<Order> {
         double price = 0;
 
         for (ProductInOrder p : data.getProducts()) {
-            price += p.countPrice();
+            price += p.countPrice() * p.getCount();
+
+            for (Improvement i : p.getImprovements()) {
+                price += i.getPrice() * p.getCount();                
+            }
         }
 
         return price;
