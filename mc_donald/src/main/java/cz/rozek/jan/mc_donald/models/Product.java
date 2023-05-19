@@ -21,6 +21,7 @@ public class Product {
     private String id;
     @Indexed(unique = true)
     private String name;
+    private String bgImgURI = "";
     private Double price = null;
     @DBRef
     private Category category;

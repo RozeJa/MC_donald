@@ -40,6 +40,15 @@ public class ProductPanel extends ADataPanel<Product> {
         gbc.gridx++;
         add(nameVal, gbc);
 
+        JLabel bgImgURI = new JLabel("Odkaz na pozadí produktu-");
+        gbc.gridy++;
+        gbc.gridx = 0;
+        add(bgImgURI, gbc);
+
+        JLabel bgImgURIVal = new JLabel(data.getBgImgURI());
+        gbc.gridx++;
+        add(bgImgURIVal, gbc);
+
         JLabel cat = new JLabel("Kategorie-");
         gbc.gridy++;
         gbc.gridx = 0;

@@ -22,6 +22,7 @@ const ProductsPanel = () => {
                 setProducts(products.map(product => <OrderProduct key={product.id} product={product} />))
             })
     }, [categoryId])
+    
 
     return (
         <div className='product-panel'>

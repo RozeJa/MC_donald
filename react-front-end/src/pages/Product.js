@@ -67,7 +67,7 @@ const Product = () => {
     const handleChange = (e) => {
         const { value } = e.target
 
-        setProductInOrder({ ...productInOrder, ['count']: Math.min(30, Math.max(0, parseInt(value))) })
+        setProductInOrder({ ...productInOrder, ['count']: Math.min(30, Math.max(1, parseInt(value))) })
     }
 
     const order = () => {
@@ -116,22 +116,28 @@ const Product = () => {
 
     }
 
+    const divStyle = {
+        backgroundImage: `url(/imgs/product-imgs/${product.bgImgURI})`,
+    };
+
     return (
-        <div className='product'>
-            <div hidden key={product.id}></div>
-            <div className='product-product' name={JSON.stringify(productInOrder)}>
-                <h1 onClick={incCount}>{product.name} {product.price} Kč</h1>
-                <Input type='number' min='1' max='30' value={productInOrder.count} onChange={handleChange} />
-            </div>
-            <div className='product-improvements-header'>
-                <h2>Dostupná vylepšení: </h2>
-                <div className='product-improvements'>
-                    {improvementsShow}
+        <div className='product' style={divStyle}>
+            <div className='product-bg'>
+                <div hidden key={product.id}></div>
+                <div className='product-product' name={JSON.stringify(productInOrder)}>
+                    <h1 onClick={incCount}>{product.name} {product.price} Kč</h1>
+                    <Input type='number' min='1' max='30' value={productInOrder.count} onChange={handleChange} />
                 </div>
-            </div>
-            <div className='product-btns'>
-                <button onClick={cancel}>Cancel</button>
-                <button onClick={order}>Order</button>
+                <div className='product-improvements-header'>
+                    <h2>Dostupná vylepšení: </h2>
+                    <div className='product-improvements'>
+                        {improvementsShow}
+                    </div>
+                </div>
+                <div className='product-btns'>
+                    <button onClick={cancel}>Cancel</button>
+                    <button onClick={order}>Order</button>
+                </div>                
             </div>
         </div>
     )

@@ -4,6 +4,7 @@ public class Category implements IData {
 
     private String id;
     private String name;
+    private String bgImgURI;
     private boolean available = true;
 
     public Category() {
@@ -14,9 +15,10 @@ public class Category implements IData {
         this.available = available;
     }
 
-    public Category(String id, String name, boolean available) {
+    public Category(String id, String name, String bgImgURI, boolean available) {
         this.id = id;
         this.name = name;
+        this.bgImgURI = bgImgURI;
         this.available = available;
     }
 
@@ -36,6 +38,14 @@ public class Category implements IData {
         this.name = name;
     }
 
+    public String getBgImgURI() {
+        return bgImgURI;
+    }
+
+    public void setBgImgURI(String bgImgURI) {
+        this.bgImgURI = bgImgURI;
+    }
+    
     public boolean isAvailable() {
         return available;
     }

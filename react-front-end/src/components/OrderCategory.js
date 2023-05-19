@@ -1,8 +1,17 @@
 import './OrderCategory.css'
 
 const OrderCategory = (props) => {
+
+    const divStyle = {
+        backgroundImage: `url(/imgs/category-imgs/${props.category.bgImgURI})`,
+    };
+
+    // backgroundImage: `url(${imageUrl})`
     return (
-        <a className='category-order' href={'/order/products/' + props.category.id} >{props.category.name}</a>
+        <div className='category-order' style={divStyle}>
+            <a href={'/order/products/' + props.category.id} >{props.category.name}</a>            
+        </div>
+
     )
 }
 

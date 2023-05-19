@@ -8,6 +8,7 @@ import cz.rozek.jan.admin_mc_donald.data.models.Category;
 
 public class CategoryForm extends EditForm<Category> {
     private JTextField name = new JTextField(12);
+    private JTextField bgImgURI = new JTextField(12);
     private Map<String, Category> categories;
 
     @Override
@@ -37,6 +38,17 @@ public class CategoryForm extends EditForm<Category> {
             name.setText(data.getName());
         contentPane.add(name, gbc);
 
+        JLabel bgImgURILabel = new JLabel("Pozadí kategorie");
+         
+        gbc.gridx = 0;
+        gbc.gridy++;
+        contentPane.add(bgImgURILabel, gbc);
+
+        gbc.gridx++;
+        if (data != null)
+            bgImgURI.setText(data.getBgImgURI());
+        contentPane.add(bgImgURI, gbc);
+
         int gridy = gbc.gridy;
         gbc.gridx = 0;
         gbc.gridy = 2048;
@@ -55,6 +67,7 @@ public class CategoryForm extends EditForm<Category> {
         });
         exit.addActionListener(l -> setVisible(false));
         name.addKeyListener(getKeyListener());
+        bgImgURI.addKeyListener(getKeyListener());
     }
 
     @Override
@@ -67,6 +80,8 @@ public class CategoryForm extends EditForm<Category> {
             sb.append("Je třeba vyplnit název kategorie");
         }
         data.setName(name.getText().trim());
+
+        data.setBgImgURI(bgImgURI.getText().trim());
 
         if (categories.values().contains(data)) {
             sb.append(String.format("Kategorie s názvem %s již existuje.", data.getName()));

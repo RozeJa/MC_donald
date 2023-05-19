@@ -22,6 +22,7 @@ public class ProductForm extends EditForm<Product> {
     private String[] arrImprovement;
 
     private JTextField name = new JTextField(12);
+    private JTextField bgImgURI = new JTextField(12);
     private JTextField price = new JTextField(12);
     private JComboBox<String> category;
     private Map<String, Product> products;
@@ -50,6 +51,7 @@ public class ProductForm extends EditForm<Product> {
         buildLayout();
 
         JLabel nameLabel = new JLabel("Název");
+        JLabel bgImgURILabel = new JLabel("Odkaz na pozedí");
         JLabel priceLabel = new JLabel("Cena");
         JLabel categoryLabel = new JLabel("Kategorie");
 
@@ -61,6 +63,16 @@ public class ProductForm extends EditForm<Product> {
         if (updated)
             name.setText(data.getName());
         contentPane.add(name, gbc);
+
+        
+        gbc.gridx = 0;
+        gbc.gridy++;
+        contentPane.add(bgImgURILabel, gbc);
+
+        gbc.gridx++;
+        if (updated)
+            price.setText(data.getBgImgURI());
+        contentPane.add(bgImgURI, gbc);
 
         gbc.gridx = 0;
         gbc.gridy++;
@@ -218,6 +230,8 @@ public class ProductForm extends EditForm<Product> {
             sb.append(String.format("Produkt s názvem %s již existuje.", data.getName()));
             data.setName(lastName);
         }
+
+        data.setBgImgURI(bgImgURI.getText().trim());
 
         if (!price.getText().trim().equals("")) {
             try {

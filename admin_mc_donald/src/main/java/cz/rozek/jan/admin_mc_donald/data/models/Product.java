@@ -6,15 +6,17 @@ import java.util.TreeMap;
 public class Product implements IData {
     private String id;
     private String name;
+    private String bgImgURI = "";
     private Double price = null;
     private Category category;    
     private Map<String, Improvement> availableImprovements = new TreeMap<>();
     private boolean available = true; 
 
-    public Product(String id, String name, Double price, Category category, Map<String, Improvement> availableImprovements,
+    public Product(String id, String name, String bgImgURI, Double price, Category category, Map<String, Improvement> availableImprovements,
             boolean available) {
         this.id = id;
         this.name = name;
+        this.bgImgURI = bgImgURI;
         this.price = price;
         this.category = category;
         this.availableImprovements = availableImprovements;
@@ -38,6 +40,14 @@ public class Product implements IData {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getBgImgURI() {
+        return bgImgURI;
+    }
+
+    public void setBgImgURI(String bgImgURI) {
+        this.bgImgURI = bgImgURI;
     }
 
     public Double getPrice() {

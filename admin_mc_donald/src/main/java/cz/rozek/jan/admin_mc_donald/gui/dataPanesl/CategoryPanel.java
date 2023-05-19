@@ -21,7 +21,7 @@ public class CategoryPanel extends ADataPanel<Category> {
         gbc.gridy = 0;
         add(header, gbc);
 
-        JLabel id = new JLabel("ID-");
+        JLabel id = new JLabel("ID -");
         gbc.gridy++;
         add(id, gbc);           
 
@@ -29,7 +29,7 @@ public class CategoryPanel extends ADataPanel<Category> {
         gbc.gridx++;
         add(idVal, gbc);
 
-        JLabel name = new JLabel("Název kategorie-");
+        JLabel name = new JLabel("Název kategorie -");
         gbc.gridx = 0;
         gbc.gridy++;
         add(name, gbc);
@@ -37,6 +37,16 @@ public class CategoryPanel extends ADataPanel<Category> {
         JLabel nameVal = new JLabel(data.getName());
         gbc.gridx++;
         add(nameVal, gbc);
+
+        JLabel bgImgURI = new JLabel("Pozadí kategorie -");
+        gbc.gridx = 0;
+        gbc.gridy++;
+        add(bgImgURI, gbc);
+
+        JLabel bgImgURIVal = new JLabel(data.getBgImgURI());
+        gbc.gridx++;
+        add(bgImgURIVal, gbc);
+
 
         JButton edit = new JButton("Editovat");
         edit.addActionListener(update);

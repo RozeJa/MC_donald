@@ -27,7 +27,8 @@
 .product-panel-btns a {
     padding: 5vh;
     font-size: 2em;
-    background-color: cyan;
+    background-color: #EB1820;
+    border-radius: 5px;
     text-decoration: none;
-    color: black;
+    color: white;
 }
