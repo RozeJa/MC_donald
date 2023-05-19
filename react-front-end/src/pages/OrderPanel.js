@@ -7,7 +7,9 @@ const OrderPanel = () => {
 
     return (
         <div className='order-panel' onClick={() => navigate('/order/categories/')}>
-            <p>Objednej</p>
+            <div className='order-panel-bg'>
+                <p>Objednej</p>
+            </div>
         </div>
     )
 }
