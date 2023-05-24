@@ -48,6 +48,11 @@ const CompleteOrder = () => {
 
     return (
         <div className='complete-order'>
+            
+            <video className='order-panel-video' autoPlay loop muted >
+                <source src='/videos/videoSequence.mp4' type="video/mp4" />
+            </video>
+
             <div className='compleat-order-header'>
                 <h1>Vaše objednávka obsahuje:</h1>
             </div>

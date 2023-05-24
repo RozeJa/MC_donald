@@ -28,4 +28,12 @@
 .product-in-order-header button {
     display: flex;
     height: 55%;
+    font-size: 1em;
+    border: none;
+    background-color: #ff0000;
+    color: white;
+}
+
+.product-in-order-header button:hover {
+    cursor: pointer;
 }

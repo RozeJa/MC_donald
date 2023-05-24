@@ -14,8 +14,6 @@
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.65);
 }
-.product-bg input, .product-bg button {
-} 
 
 .product-product {
     display: flex;
