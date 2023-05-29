@@ -17,6 +17,6 @@ public class Category {
     private String id;
     @Indexed(unique = true)
     private String name;
-    private String bgImgURI = ""; // TODO přidat do edit app 
+    private String bgImgURI = "";
     private boolean available;
 }

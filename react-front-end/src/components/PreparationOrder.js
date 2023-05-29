@@ -24,7 +24,7 @@ const PreparationOrder = (data) => {
                 body: JSON.stringify(order)
             }).then(response => {
                 if (response.status === 200) {
-                    console.log("odebrání se podařilo");
+                    //console.log("odebrání se podařilo");
                 }
             })
         }}>

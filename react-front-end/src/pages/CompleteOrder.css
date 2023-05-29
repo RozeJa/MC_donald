@@ -44,3 +44,10 @@
 .complete-order-btns h4:hover {
     cursor: pointer;
 }
+
+.compleat-order-compleating {
+    position: absolute;
+    top: 45vh;
+    left: 29vw; 
+    z-index: 2;
+}

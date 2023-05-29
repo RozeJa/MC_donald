@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react'
 import './CompleteOrder.css'
 import { useNavigate } from 'react-router-dom'
 import ProductInOrder from '../components/ProductInOrder'
+import Compleating from '../components/Compleating'
 
 const CompleteOrder = () => {
 
     const navigate = useNavigate()
     const [order, setOrder] = useState(JSON.parse(sessionStorage.getItem('order')))
     const [products, setProducts] = useState([])
+    const [compleating, setCompleating] = useState(<></>);
 
     useEffect(() => {
         setProducts(order.products.map(product => {
@@ -25,25 +27,34 @@ const CompleteOrder = () => {
     }
 
     const pay = () => {
-        fetch('http://localhost:8080/api/orders/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(order)
-        })
-        .then(res => {
-            if (res.status === 200) {
-                sessionStorage.removeItem('order')
-                sessionStorage.setItem('order', JSON.stringify({
-                    products: [],
-                    finished: false
-                }))
-                navigate('/order')
-            } else {
-                return {}
-            }
-        })
+
+        setCompleating(
+            <div className='compleat-order-compleating'>
+                <Compleating  />
+            </div>
+        )
+
+        setTimeout(() => {
+            fetch('http://localhost:8080/api/orders/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(order)
+            })
+            .then(res => {
+                if (res.status === 200) {
+                    sessionStorage.removeItem('order')
+                    sessionStorage.setItem('order', JSON.stringify({
+                        products: [],
+                        finished: false
+                    }))
+                    navigate('/order')
+                } else {
+                    return {}
+                }
+            })            
+        }, 3000)
     }
 
     return (
@@ -52,6 +63,8 @@ const CompleteOrder = () => {
             <video className='order-panel-video' autoPlay loop muted >
                 <source src='/videos/videoSequence.mp4' type="video/mp4" />
             </video>
+
+            {compleating}
 
             <div className='compleat-order-header'>
                 <h1>Vaše objednávka obsahuje:</h1>

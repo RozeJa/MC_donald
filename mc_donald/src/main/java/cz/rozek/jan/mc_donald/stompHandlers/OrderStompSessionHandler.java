@@ -14,9 +14,7 @@ public class OrderStompSessionHandler implements StompSessionHandler {
     private StompSession session;
 
     @Override
-    public void afterConnected(StompSession session, StompHeaders connectedHeaders) {
-        // TODO vyřeš koment pod tím
-        // proč odebírá?? 
+    public void afterConnected(StompSession session, StompHeaders connectedHeaders) { 
         session.subscribe("/orders/distributeOrder", this);
         this.session = session;
     }
