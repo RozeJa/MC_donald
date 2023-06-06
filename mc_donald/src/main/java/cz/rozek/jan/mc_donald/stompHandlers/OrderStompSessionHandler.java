@@ -40,6 +40,7 @@ public class OrderStompSessionHandler implements StompSessionHandler {
     }
 
     public void sendOrder(Order order) {
+        // metoda odešle na endpoint /app/distributeOrder order tím se docílí přeposlání na všechny odběratele /orders/distributeOrder
         session.send("/app/distributeOrder", order);
     }
 }

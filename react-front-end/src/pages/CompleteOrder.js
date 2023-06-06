@@ -28,33 +28,37 @@ const CompleteOrder = () => {
 
     const pay = () => {
 
-        setCompleating(
-            <div className='compleat-order-compleating'>
-                <Compleating  />
-            </div>
-        )
 
-        setTimeout(() => {
-            fetch('http://localhost:8080/api/orders/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(order)
-            })
-            .then(res => {
-                if (res.status === 200) {
-                    sessionStorage.removeItem('order')
-                    sessionStorage.setItem('order', JSON.stringify({
-                        products: [],
-                        finished: false
-                    }))
-                    navigate('/order')
-                } else {
-                    return {}
-                }
-            })            
-        }, 3000)
+        if (order.products.length > 0) {
+            setCompleating(
+                <div className='compleat-order-compleating'>
+                    <Compleating  />
+                </div>
+            )
+
+            setTimeout(() => {
+                fetch('http://localhost:8080/api/orders/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(order)
+                })
+                .then(res => {
+                    if (res.status === 200) {
+                        sessionStorage.removeItem('order')
+                        sessionStorage.setItem('order', JSON.stringify({
+                            products: [],
+                            finished: false
+                        }))
+                        navigate('/order')
+                    } else {
+                        return {}
+                    }
+                })            
+            }, 3000)            
+        }
+
     }
 
     return (
