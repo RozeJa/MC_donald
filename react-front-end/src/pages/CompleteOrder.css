@@ -5,7 +5,7 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.65);
-    color: #FF0000;
+    color: #ffffff;
 }
 
 .complete-order-video {
@@ -27,6 +27,7 @@
    flex-direction: column;
    overflow: auto;
    height: 100%; 
+   width: 35%;
 }
 
 .complete-order-btns {

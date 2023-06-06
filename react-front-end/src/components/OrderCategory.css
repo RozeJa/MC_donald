@@ -19,6 +19,7 @@
 
 .category-order a  {
     display: flex;
+    font-size: 2em;
     justify-content: center;
     align-items: center;
     width: 100%;
